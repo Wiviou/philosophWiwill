@@ -28,7 +28,7 @@ OBJ       = $(addprefix $(OBJ_DIR), $(notdir $(SRC:.c=.o)))
 
 ### Compiler ###
 CC       = cc
-CFLAGS   = -Wall -Wextra -Werror -g3 -fsanitize=thread
+CFLAGS   = -Wall -Wextra -Werror #-g3 -fsanitize=thread
 RM       = rm -f
 
 ### Rules ###

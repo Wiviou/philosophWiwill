@@ -60,7 +60,7 @@ void	handle_error(const char *message, t_info *info)
 	{
 		clear_data(info);
 	}
-	fprintf(stderr, "%s\n", message);
+	printf("%s\n", message);
 	exit(EXIT_FAILURE);
 }
 
