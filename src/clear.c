@@ -22,6 +22,9 @@ void	clear_data(t_info *info)
 		while (i < info->init_count_forks)
 		{
 			pthread_mutex_destroy_safe(&info->forks[i]);
+			pthread_mutex_destroy_safe(&info->philos[i].last_meal_time_mutex);
+			if (info->must_eat != -1)
+				pthread_mutex_destroy_safe(&info->philos[i].eat_count_mutex);
 			i++;
 		}
 		free(info->forks);

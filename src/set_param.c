@@ -91,4 +91,19 @@ void	set_philosopher_param(t_philo *philo, t_info *info, int i)
 	philo->id = i + 1;
 	philo->priority = 0;
 	info->flag = 1;
+	if (pthread_mutex_init(&philo->last_meal_time_mutex, NULL) != 0)
+	{
+		printf("Error initializing last meal time mutex \
+		for philo %d\n", philo->id);
+		exit(EXIT_FAILURE);
+	}
+	if (info->must_eat != -1)
+	{
+		if (pthread_mutex_init(&philo->eat_count_mutex, NULL) != 0)
+		{
+			printf("Error initializing last meal time \
+			mutex for philo %d\n", philo->id);
+			exit(EXIT_FAILURE);
+		}
+	}
 }

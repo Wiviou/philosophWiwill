@@ -22,12 +22,13 @@ SRC       = $(SRC_PATH)main.c \
 			$(SRC_PATH)clear.c \
 			$(SRC_PATH)put_up_or_down_fork.c \
 			$(SRC_PATH)monitor.c \
+			$(SRC_PATH)monitor2.c \
             $(SRC_PATH)action.c
 OBJ       = $(addprefix $(OBJ_DIR), $(notdir $(SRC:.c=.o)))
 
 ### Compiler ###
 CC       = cc
-CFLAGS   = -Wall -Wextra -Werror #-g3 -fsanitize=address#
+CFLAGS   = -Wall -Wextra -Werror -g3 -fsanitize=thread
 RM       = rm -f
 
 ### Rules ###

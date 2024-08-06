@@ -39,6 +39,8 @@ typedef struct s_philo
 	int				priority;
 	u_int64_t		last_meal_time;
 	pthread_mutex_t	dead_mutex;
+	pthread_mutex_t	eat_count_mutex;
+	pthread_mutex_t	last_meal_time_mutex;
 }					t_philo;
 
 typedef struct s_info
@@ -47,6 +49,7 @@ typedef struct s_info
 	int				philo_num;
 	int				must_eat;
 	int				dead;
+	int				d2;
 	int				too_bad_no_death;
 	int				finish_count;
 	int				flag;
@@ -102,8 +105,11 @@ int					num_check(char *str);
 int					check_nb_philo(long nb);
 int					all_philos_satisfied(t_info *info);
 int					error_check(int argc, char **argv);
+int					check_death_and_timeout(t_philo *philo);
+int					check_all_satisfied(t_philo *philo);
+void				set_dead_and_break(t_philo *philo);
 
-// othres
+// other
 long				ft_atol(const char *str);
 
 #endif
